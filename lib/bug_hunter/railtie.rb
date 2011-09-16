@@ -3,7 +3,7 @@ module BugHunter
     config.after_initialize do |app|
       config = app.config
       next if config.bug_hunter == false
-      config.bug_hunter ||= "/errors"
+      config.bug_hunter ||= (ENV["BUGHUNTER_PATH"] || "/errors")
 
       require 'bug_hunter'
       if Rails::VERSION::MINOR >= 1
