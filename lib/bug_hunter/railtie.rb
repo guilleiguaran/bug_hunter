@@ -2,7 +2,8 @@ module BugHunter
   class Railtie < ::Rails::Railtie
     config.after_initialize do |app|
       config = app.config
-      next unless config.bug_hunter
+      next if config.bug_hunter == false
+      config.bug_hunter ||= "/errors"
 
       require 'bug_hunter'
       if Rails::VERSION::MINOR >= 1
