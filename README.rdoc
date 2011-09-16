@@ -11,6 +11,9 @@ set a path for bug_hunter in config/application.rb:
 
     config.bug_hunter = "/errors"
 
+add this to config/routes.rb if you use Rails 3.0 (in 3.1+ you don't need do anything else):
+
+    mount BugHunter.app => Rails.application.config.bug_hunter
 
 == Contributing to bug_hunter
 
