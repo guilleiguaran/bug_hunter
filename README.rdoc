@@ -13,10 +13,6 @@ add this to config/routes.rb:
     ...
     mount BugHunter.app => "/errors"
 
-enable the middleware on config/application.rb:
-
-    config.middleware.use "BugHunter::Middleware"
-
 
 == Contributing to bug_hunter
 
